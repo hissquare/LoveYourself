@@ -1,35 +1,35 @@
 {
   "Source": "https://offsets.imtheo.lol",
-  "Roblox Version": "version-36a2600cebf1487d",
+  "Roblox Version": "version-ddf02245bdbb428c",
   "Dumper Version": "2.1.7",
   "Dumped With": "RbxDumperV2",
-  "Dumped At": "19:53 08/07/2026",
+  "Dumped At": "18:06 15/07/2026",
   "Discord": "https://offsets.imtheo.lol/discord",
-  "Total Offsets": 392,
+  "Total Offsets": 393,
   "Offsets": {
     "PlayerConfigurer": {
       "Pointer": 0
     },
     "TaskScheduler": {
-      "Pointer": 134487752,
+      "Pointer": 137076552,
       "JobStart": 200,
       "JobEnd": 208,
       "JobName": 24,
       "MaxFPS": 176
     },
     "VisualEngine": {
-      "Pointer": 136143304,
+      "Pointer": 138706024,
       "Dimensions": 2736,
       "ViewMatrix": 336,
       "RenderView": 3000,
       "FakeDataModel": 2704
     },
     "FakeDataModel": {
-      "Pointer": 139107992,
+      "Pointer": 131237128,
       "RealDataModel": 464
     },
     "MouseService": {
-      "SensitivityPointer": 0,
+      "SensitivityPointer": 133077848,
       "InputObject": 240,
       "InputObject2": 256,
       "MousePosition": 212
@@ -92,20 +92,20 @@
       "PlaceId": 400,
       "GameId": 392,
       "CreatorId": 384,
-      "GameLoaded": 1640,
+      "GameLoaded": 1400,
       "JobId": 288,
       "Workspace": 352,
       "ScriptContext": 1088,
       "PlaceVersion": 428,
-      "ServerIP": 1616,
+      "ServerIP": 1376,
       "ToRenderView1": 456,
       "ToRenderView2": 8,
       "ToRenderView3": 40,
-      "PrimitiveCount": 1176
+      "PrimitiveCount": 960
     },
     "RunService": {
-      "HeartbeatTask": 3080,
-      "HeartbeatFPS": 180
+      "HeartbeatTask": 952,
+      "HeartbeatFPS": 244
     },
     "RenderJob": {
       "RenderView": 464,
@@ -113,21 +113,21 @@
       "RealDataModel": 456
     },
     "Workspace": {
-      "World": 992,
+      "World": 872,
       "ReadOnlyGravity": 2456,
       "DistributedGameTime": 1192,
       "CurrentCamera": 1160
     },
     "World": {
-      "Gravity": 528,
-      "worldStepsPerSec": 1664,
-      "FallenPartsDestroyHeight": 520,
-      "AirProperties": 536,
-      "Primitives": 648
+      "Gravity": 420,
+      "worldStepsPerSec": 3094,
+      "FallenPartsDestroyHeight": 0,
+      "AirProperties": 0,
+      "Primitives": 0
     },
     "AirProperties": {
-      "AirDensity": 24,
-      "GlobalWind": 60
+      "AirDensity": 0,
+      "GlobalWind": 0
     },
     "Terrain": {
       "GrassLength": 392,
@@ -168,10 +168,11 @@
       "PlaybackSpeed": 284,
       "Volume": 304,
       "SoundGroup": 232,
+      "IsPlaying": 320,
       "Looped": 317
     },
     "SpawnLocation": {
-      "AllowTeamChangeOnTouch": 61,
+      "AllowTeamChangeOnTouch": 392,
       "Enabled": 393,
       "Neutral": 394,
       "ForcefieldDuration": 384,
@@ -232,7 +233,7 @@
       "LocaleId": 280,
       "AccountAge": 860,
       "MinZoomDistance": 876,
-      "MaxZoomDistance": 872,
+      "MaxZoomDistance": 445,
       "CameraMode": 880,
       "Mouse": 4568
     },
@@ -277,7 +278,7 @@
       "HumanoidStateID": 32,
       "FloorMaterial": 388,
       "TargetPoint": 332,
-      "PlatformStatePointer": 1962649249
+      "PlatformStatePointer": 2343857852
     },
     "Seat": {
       "Occupant": 432
@@ -372,7 +373,7 @@
       "Part1": 200
     },
     "UnionOperation": {
-      "AssetId": 648
+      "AssetId": 656
     },
     "PlayerMouse": {
       "Workspace": 336,
@@ -390,7 +391,7 @@
       "BorderColor3": 1356,
       "TextColor3": 3664,
       "LayoutOrder": 1408,
-      "ZIndex": 395,
+      "ZIndex": 1444,
       "BackgroundTransparency": 1356,
       "Rotation": 376
     },
