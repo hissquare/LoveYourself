@@ -1,9 +1,9 @@
 {
   "Source": "https://offsets.imtheo.lol",
-  "Roblox Version": "version-d584fb6c717a43d9",
+  "Roblox Version": "version-ce0bcd0fbd484804",
   "Dumper Version": "2.1.7",
   "Dumped With": "RbxDumperV2",
-  "Dumped At": "01:04 06/08/2026",
+  "Dumped At": "00:33 18/08/2026",
   "Discord": "https://offsets.imtheo.lol/discord",
   "Total Offsets": 388,
   "Offsets": {
@@ -11,22 +11,22 @@
       "Pointer": 0
     },
     "TaskScheduler": {
-      "Pointer": 142190312,
+      "Pointer": 144560392,
       "JobStart": 200,
       "JobEnd": 208,
       "JobName": 24,
       "MaxFPS": 176
     },
     "VisualEngine": {
-      "Pointer": 135385248,
+      "Pointer": 136830344,
       "Dimensions": 2784,
       "ViewMatrix": 384,
-      "RenderView": 3056,
+      "RenderView": 3072,
       "FakeDataModel": 2752
     },
     "FakeDataModel": {
-      "Pointer": 145086280,
-      "RealDataModel": 464
+      "Pointer": 147072760,
+      "RealDataModel": 472
     },
     "MouseService": {
       "SensitivityPointer": 0,
@@ -61,7 +61,7 @@
       "ClassBase": 432
     },
     "Misc": {
-      "StringLength": 0,
+      "StringLength": 16,
       "Adornee": 240,
       "Value": 184,
       "AnimationId": 192
@@ -80,32 +80,32 @@
       "VertexStart": 0
     },
     "DataModel": {
-      "PlaceId": 400,
-      "GameId": 392,
-      "CreatorId": 384,
-      "GameLoaded": 1400,
-      "JobId": 288,
-      "Workspace": 352,
+      "PlaceId": 392,
+      "GameId": 384,
+      "CreatorId": 376,
+      "GameLoaded": 1472,
+      "JobId": 280,
+      "Workspace": 344,
       "ScriptContext": 1088,
-      "PlaceVersion": 428,
-      "ServerIP": 1376,
-      "ToRenderView1": 456,
+      "PlaceVersion": 420,
+      "ServerIP": 1448,
+      "ToRenderView1": 448,
       "ToRenderView2": 8,
       "ToRenderView3": 40,
-      "PrimitiveCount": 960
+      "PrimitiveCount": 1032
     },
     "RunService": {
-      "HeartbeatTask": 1720,
-      "HeartbeatFPS": 244
+      "HeartbeatTask": 224,
+      "HeartbeatFPS": 200
     },
     "RenderJob": {
-      "RenderView": 464,
+      "RenderView": 472,
       "FakeDataModel": 56,
-      "RealDataModel": 456
+      "RealDataModel": 464
     },
     "Workspace": {
       "World": 1008,
-      "ReadOnlyGravity": 2488,
+      "ReadOnlyGravity": 2504,
       "DistributedGameTime": 1208,
       "CurrentCamera": 1176
     },
@@ -121,13 +121,13 @@
       "GlobalWind": 60
     },
     "Terrain": {
-      "GrassLength": 392,
-      "WaterReflectance": 400,
-      "WaterTransparency": 404,
-      "WaterWaveSize": 408,
-      "WaterWaveSpeed": 412,
-      "WaterColor": 376,
-      "MaterialColors": 1072
+      "GrassLength": 488,
+      "WaterReflectance": 496,
+      "WaterTransparency": 500,
+      "WaterWaveSize": 504,
+      "WaterWaveSpeed": 508,
+      "WaterColor": 472,
+      "MaterialColors": 1168
     },
     "MaterialColors": {
       "Asphalt": 48,
@@ -164,18 +164,18 @@
     },
     "SpawnLocation": {
       "AllowTeamChangeOnTouch": 61,
-      "Enabled": 393,
-      "Neutral": 394,
-      "ForcefieldDuration": 384,
-      "TeamColor": 388
+      "Enabled": 489,
+      "Neutral": 490,
+      "ForcefieldDuration": 480,
+      "TeamColor": 484
     },
     "SurfaceAppearance": {
-      "AlphaMode": 656,
-      "Color": 632,
+      "AlphaMode": 496,
+      "Color": 472,
       "ColorMap": 200,
       "EmissiveMaskContent": 248,
-      "EmissiveStrength": 660,
-      "EmissiveTint": 644,
+      "EmissiveStrength": 500,
+      "EmissiveTint": 484,
       "MetalnessMap": 296,
       "NormalMap": 344,
       "RoughnessMap": 392
@@ -216,17 +216,17 @@
       "LocalPlayer": 304,
       "UserId": 768,
       "DisplayName": 312,
-      "HealthDisplayDistance": 912,
-      "NameDisplayDistance": 928,
+      "HealthDisplayDistance": 916,
+      "NameDisplayDistance": 932,
       "ModelInstance": 664,
       "Team": 728,
-      "TeamColor": 940,
+      "TeamColor": 944,
       "LocaleId": 280,
       "AccountAge": 860,
       "MinZoomDistance": 876,
-      "MaxZoomDistance": 872,
+      "MaxZoomDistance": 349,
       "CameraMode": 880,
-      "Mouse": 4584
+      "Mouse": 4592
     },
     "Team": {
       "BrickColor": 184
@@ -269,17 +269,17 @@
       "HumanoidStateID": 32,
       "FloorMaterial": 388,
       "TargetPoint": 332,
-      "PlatformStatePointer": 3411945944
+      "PlatformStatePointer": 3411950830
     },
     "Seat": {
-      "Occupant": 432
+      "Occupant": 528
     },
     "VehicleSeat": {
-      "MaxSpeed": 456,
-      "SteerFloat": 464,
-      "ThrottleFloat": 472,
-      "Torque": 476,
-      "TurnSpeed": 480
+      "MaxSpeed": 552,
+      "SteerFloat": 556,
+      "ThrottleFloat": 560,
+      "Torque": 564,
+      "TurnSpeed": 568
     },
     "StatsItem": {
       "Value": 200
@@ -288,9 +288,9 @@
       "Tooltip": 1128,
       "TextureId": 864,
       "Grip": 1196,
-      "Enabled": 837,
+      "Enabled": 1209,
       "CanBeDropped": 1208,
-      "ManualActivationOnly": 661,
+      "ManualActivationOnly": 1210,
       "RequiresHandle": 1211
     },
     "Clothing": {
@@ -301,27 +301,27 @@
       "BaseTextureId": 200,
       "OverlayTextureId": 296,
       "MeshId": 248,
-      "BodyPart": 256
+      "BodyPart": 328
     },
     "Camera": {
       "Position": 252,
       "Rotation": 216,
       "CameraSubject": 200,
       "FieldOfView": 320,
-      "ImagePlaneDepth": 720,
+      "ImagePlaneDepth": 724,
       "CameraType": 312,
       "Viewport": 652,
-      "ViewportSize": 712
+      "ViewportSize": 716
     },
     "BasePart": {
-      "Primitive": 296,
-      "Transparency": 208,
-      "Color3": 244,
-      "Shape": 345,
-      "Massless": 215,
-      "CastShadow": 213,
-      "Locked": 214,
-      "Reflectance": 204
+      "Primitive": 392,
+      "Transparency": 304,
+      "Color3": 424,
+      "Shape": 441,
+      "Massless": 311,
+      "CastShadow": 309,
+      "Locked": 310,
+      "Reflectance": 268
     },
     "Primitive": {
       "Position": 236,
@@ -341,8 +341,8 @@
       "CanQuery": 32
     },
     "MeshPart": {
-      "MeshId": 680,
-      "Texture": 728
+      "MeshId": 776,
+      "Texture": 824
     },
     "Model": {
       "PrimaryPart": 600,
@@ -364,7 +364,7 @@
       "Part1": 200
     },
     "UnionOperation": {
-      "AssetId": 680
+      "AssetId": 776
     },
     "PlayerMouse": {
       "Workspace": 336,
@@ -376,11 +376,11 @@
       "Size": 1328,
       "Visible": 1453,
       "Image": 2440,
-      "Text": 3568,
-      "RichText": 2936,
+      "Text": 3576,
+      "RichText": 2952,
       "BackgroundColor3": 1344,
       "BorderColor3": 1356,
-      "TextColor3": 3744,
+      "TextColor3": 3752,
       "LayoutOrder": 1408,
       "ZIndex": 1444,
       "BackgroundTransparency": 1356,
@@ -513,7 +513,7 @@
       "Speed": 212,
       "TimePosition": 216,
       "Looped": 229,
-      "IsPlaying": 2704
+      "IsPlaying": 2640
     },
     "Animator": {
       "ActiveAnimations": 2944
