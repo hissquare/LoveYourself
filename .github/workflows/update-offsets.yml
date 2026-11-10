@@ -1,0 +1,132 @@
+name: Update offsets
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-offsets
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch and validate upstream offsets
+        id: fetch
+        env:
+          SOURCE_URL: https://offsets.imtheo.lol/Offsets.json
+          TARGET_FILE: fallback.json
+        run: |
+          python3 - <<'PY'
+          import json, os, re, sys, urllib.request
+
+          SOURCE = os.environ['SOURCE_URL']
+          TARGET = os.environ['TARGET_FILE']
+          LIVE = 'https://clientsettingscdn.roblox.com/v2/client-version/WindowsPlayer'
+          # Every field Quasar's Timings, Lock On and ESP read. All must come
+          # from the same dump.
+          REQUIRED = {
+              'FakeDataModel': ('Pointer', 'RealDataModel'),
+              'DataModel': ('Workspace',),
+              'Workspace': ('CurrentCamera',),
+              'Camera': ('FieldOfView',),
+              'Instance': ('NameContainer', 'Name', 'ChildrenStart', 'ChildrenEnd', 'ClassDescriptor', 'ClassName'),
+              'Misc': ('StringLength',),
+              'Player': ('LocalPlayer', 'ModelInstance', 'Team'),
+              'Humanoid': ('Health', 'MaxHealth'),
+              'BasePart': ('Primitive',),
+              'Primitive': ('Position', 'Size', 'Rotation'),
+              'VisualEngine': ('Pointer', 'ViewMatrix'),
+          }
+          VERSION = re.compile(r'version-[0-9a-f]{16}')
+
+          def finish(changed, message, version=''):
+              print(message)
+              output = os.environ.get('GITHUB_OUTPUT')
+              if output:
+                  with open(output, 'a', encoding='utf-8') as handle:
+                      handle.write(f'changed={"true" if changed else "false"}\nversion={version}\n')
+              sys.exit(0)
+
+          def fetch(url, limit):
+              request = urllib.request.Request(url, headers={'User-Agent': 'quasar-offsets-mirror', 'Accept': 'application/json'})
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  if not SOURCE.startswith('file:') and not response.geturl().startswith('https://'):
+                      raise ValueError('redirected away from HTTPS')
+                  data = response.read(limit + 1)
+              if len(data) > limit:
+                  raise ValueError('response is too large')
+              return data
+
+          def version_of(document):
+              value = document.get('Roblox Version') if isinstance(document, dict) else None
+              return value if isinstance(value, str) and VERSION.fullmatch(value) else None
+
+          def problems(document):
+              if not isinstance(document, dict):
+                  return ['not a JSON object']
+              found = []
+              if version_of(document) is None:
+                  found.append('missing or malformed "Roblox Version"')
+              offsets = document.get('Offsets')
+              if not isinstance(offsets, dict):
+                  return found + ['missing "Offsets"']
+              for group, fields in REQUIRED.items():
+                  for field in fields:
+                      value = offsets.get(group, {}).get(field) if isinstance(offsets.get(group), dict) else None
+                      lowest = 0 if (group, field) == ('Instance', 'Name') else 1
+                      if type(value) is not int or not lowest <= value <= 0x7FFFFFFF:
+                          found.append(f'{group}.{field}')
+              return found
+
+          try:
+              raw = fetch(SOURCE, 1024 * 1024)
+              new = json.loads(raw.decode('utf-8'))
+          except Exception as error:
+              finish(False, f'::warning::Upstream offsets could not be read ({type(error).__name__}: {error}). Nothing changed.')
+          issues = problems(new)
+          if issues:
+              finish(False, '::warning::Upstream offsets are incomplete: ' + ', '.join(issues[:8]) + '. Nothing changed.')
+          new_version = version_of(new)
+
+          try:
+              with open(TARGET, 'rb') as handle:
+                  current_raw = handle.read()
+              current = json.loads(current_raw.decode('utf-8'))
+          except Exception:
+              current_raw, current = b'', None
+          if current is not None and current == new:
+              finish(False, f'Already current: {new_version}.', new_version)
+
+          # Do not swap a file that matches the live Roblox client for one that
+          # does not, for example if upstream briefly serves an older dump.
+          try:
+              live = json.loads(fetch(LIVE, 4096).decode('utf-8')).get('clientVersionUpload')
+          except Exception:
+              live = None
+          current_version = version_of(current) if current is not None else None
+          if (isinstance(live, str) and VERSION.fullmatch(live) and current_version == live
+                  and new_version != live and not problems(current)):
+              finish(False, f'Kept {current_version}: it matches the live client and upstream offers {new_version}.', current_version)
+
+          with open(TARGET, 'wb') as handle:
+              handle.write(raw)
+          finish(True, f'Updated {TARGET}: {current_version or "none"} -> {new_version} (live client: {live or "unknown"}).', new_version)
+          PY
+
+      - name: Commit the new offsets
+        if: steps.fetch.outputs.changed == 'true'
+        run: |
+          git config user.name "offsets-mirror"
+          git config user.email "offsets-mirror@users.noreply.github.com"
+          git add fallback.json
+          git commit -m "Update fallback.json to ${{ steps.fetch.outputs.version }}"
+          git push
